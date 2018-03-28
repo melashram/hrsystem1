@@ -1,0 +1,67 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "request",
+            "otherEntityName": "request",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "ticket"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ticketStatus",
+            "otherEntityName": "ticketStatus",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "ticket"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "employeeRequest",
+            "otherEntityName": "employee",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "reason",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creationdate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "requestStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "ticket",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "assignedTo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "acceptanceDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180328120514",
+    "entityTableName": "ticket",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

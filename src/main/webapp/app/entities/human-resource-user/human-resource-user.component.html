@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span>Human Resource Users</span>
+        <button class="btn btn-primary float-right jh-create-entity create-human-resource-user" [routerLink]="['/', { outlets: { popup: ['human-resource-user-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Human Resource User
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="humanResourceUsers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Human Resources Position</span></th>
+            <th><span>Human Resource User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let humanResourceUser of humanResourceUsers ;trackBy: trackId">
+                <td><a [routerLink]="['../human-resource-user', humanResourceUser.id ]">{{humanResourceUser.id}}</a></td>
+                <td>{{humanResourceUser.humanResourcesPosition}}</td>
+                <td>
+                    <div *ngIf="humanResourceUser.humanResourceUser">
+                        <a [routerLink]="['../employee', humanResourceUser.humanResourceUser?.id ]" >{{humanResourceUser.humanResourceUser?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../human-resource-user', humanResourceUser.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'human-resource-user/'+ humanResourceUser.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'human-resource-user/'+ humanResourceUser.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Employee.
+    -->
+    <changeSet id="20180328120508-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="human_resource_user_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_human_resource_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="human_resource_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="it_user_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_it_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="it_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_request_id"
+                                 baseTableName="employee"
+                                 constraintName="fk_employee_employee_request_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ticket"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,32 @@
+
+<div *ngIf="humanResourceUser">
+    <h2><span>Human Resource User</span> {{humanResourceUser.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Human Resources Position</span></dt>
+        <dd>
+            <span>{{humanResourceUser.humanResourcesPosition}}</span>
+        </dd>
+        <dt><span>Human Resource User</span></dt>
+        <dd>
+            <div *ngIf="humanResourceUser.humanResourceUser">
+                <a [routerLink]="['/employee', humanResourceUser.humanResourceUser?.id]">{{humanResourceUser.humanResourceUser?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'human-resource-user/'+ humanResourceUser.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

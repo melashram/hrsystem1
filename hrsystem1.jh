@@ -1,0 +1,51 @@
+entity Employee {
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+    DOB LocalDate,
+	hireDate LocalDate,
+    title String,
+}
+
+entity ItUser{
+	itPositon String
+}
+entity HumanResourceUser{
+	humanResourcesPosition String
+}
+
+entity Request{
+	type String,
+}
+
+entity Department{
+	name String
+}
+
+entity TicketStatus{
+	ticketStatus String
+}
+
+entity Ticket {
+	reason String,
+    comment String,
+    creationdate LocalDate, 
+    requestStatus String
+	ticket Long,
+    assignedTo String,
+    acceptanceDate LocalDate,
+    description String,
+}
+
+relationship OneToOne{
+	HumanResourceUser {humanResourceUser} to Employee ,
+    ItUser {itUser} to Employee
+    Ticket {request} to Request
+    Ticket {ticketStatus} to TicketStatus
+    Request {department} to Department
+}
+
+relationship ManyToOne{
+	Ticket {EmployeeRequest} to Employee
+}

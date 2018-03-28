@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "humanResourceUser",
+            "otherEntityName": "employee",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "humanResourceUser"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "humanResourcesPosition",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180328120510",
+    "entityTableName": "human_resource_user",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "ticketStatus",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180328120513",
+    "entityTableName": "ticket_status",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

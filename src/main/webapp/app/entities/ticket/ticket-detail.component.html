@@ -1,0 +1,72 @@
+
+<div *ngIf="ticket">
+    <h2><span>Ticket</span> {{ticket.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Reason</span></dt>
+        <dd>
+            <span>{{ticket.reason}}</span>
+        </dd>
+        <dt><span>Comment</span></dt>
+        <dd>
+            <span>{{ticket.comment}}</span>
+        </dd>
+        <dt><span>Creationdate</span></dt>
+        <dd>
+            <span>{{ticket.creationdate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Request Status</span></dt>
+        <dd>
+            <span>{{ticket.requestStatus}}</span>
+        </dd>
+        <dt><span>Ticket</span></dt>
+        <dd>
+            <span>{{ticket.ticket}}</span>
+        </dd>
+        <dt><span>Assigned To</span></dt>
+        <dd>
+            <span>{{ticket.assignedTo}}</span>
+        </dd>
+        <dt><span>Acceptance Date</span></dt>
+        <dd>
+            <span>{{ticket.acceptanceDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{ticket.description}}</span>
+        </dd>
+        <dt><span>Request</span></dt>
+        <dd>
+            <div *ngIf="ticket.request">
+                <a [routerLink]="['/request', ticket.request?.id]">{{ticket.request?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Ticket Status</span></dt>
+        <dd>
+            <div *ngIf="ticket.ticketStatus">
+                <a [routerLink]="['/ticket-status', ticket.ticketStatus?.id]">{{ticket.ticketStatus?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Employee Request</span></dt>
+        <dd>
+            <div *ngIf="ticket.employeeRequest">
+                <a [routerLink]="['/employee', ticket.employeeRequest?.id]">{{ticket.employeeRequest?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ticket/'+ ticket.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
